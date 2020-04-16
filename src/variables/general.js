@@ -21,9 +21,16 @@ var server = [
   'Sign contract for "What are conference organizers afraid of?"'
 ];
 
+// [id , Title , Content ]
+var NotebookData = [[ "1" , "learn react" ,  "blu blu" ],
+["2", "Hello world", "$23,789"],
+["3", "Nigga", "$56,142"],
+["4", "something else", "$38,735"]
+];
 module.exports = {
   // these 3 are used to create the tasks lists in TasksCard - Dashboard view
   bugs,
   website,
-  server
+  server,
+  NotebookData
 };

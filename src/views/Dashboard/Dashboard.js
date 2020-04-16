@@ -14,7 +14,7 @@ import AccessTime from "@material-ui/icons/AccessTime";
 import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
-import Add from "@material-ui/icons/Add"
+import Accessibility from "@material-ui/icons/Accessibility"
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -28,7 +28,7 @@ import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
-import { bugs, website, server } from "variables/general.js";
+import { bugs, website, server, NotebookData } from "variables/general.js";
 
 import   dailySalesChart from "variables/charts.js";
 import   emailsSubscriptionChart from "variables/charts.js";
@@ -42,20 +42,6 @@ export default function Dashboard() {
   const classes = useStyles();
   return (
     <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/*score and point------------------------------------------------------------------------------------------------------*/}
       <GridContainer>
@@ -257,11 +243,11 @@ export default function Dashboard() {
             tabs={[
               {
                 tabName: "add Task",
-                tabIcon: Add,
+                tabIcon: Accessibility,
                 tabContent: (
                   <Tasks
                     checkedIndexes={[0, 3]}
-                    tasksIndexes={[0, 1, 2, 3]}
+                    tasksIndexes={Object.keys(bugs)}
                     tasks={bugs}
                   />
                 )
@@ -272,7 +258,7 @@ export default function Dashboard() {
                 tabContent: (
                   <Tasks
                     checkedIndexes={[0]}
-                    tasksIndexes={[0, 1]}
+                    tasksIndexes={Object.keys(website)}
                     tasks={website}
                   />
                 )
@@ -283,7 +269,7 @@ export default function Dashboard() {
                 tabContent: (
                   <Tasks
                     checkedIndexes={[1]}
-                    tasksIndexes={[0, 1, 2]}
+                    tasksIndexes={Object.keys(server)}
                     tasks={server}
                   />
                 )
@@ -294,7 +280,7 @@ export default function Dashboard() {
                 tabContent: (
                   <Tasks
                     checkedIndexes={[1,2]}
-                    tasksIndexes={[0, 1, 2, 3, 4, 5]}
+                    tasksIndexes={Object.keys(bugs)}
                     tasks={bugs}
                   />
                 )
@@ -318,12 +304,7 @@ export default function Dashboard() {
               <Table
                 tableHeaderColor="warning"
                 tableHead={["ID", " Title ", "Content"]}
-                tableData={[
-                  ["1", "Learn react", "blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu blu"],
-                  ["2", "Hello world", "$23,789"],
-                  ["3", "Nigga", "$56,142"],
-                  ["4", "something else", "$38,735"]
-                ]}
+                tableData={NotebookData}
               />
             </CardBody>
           </Card>
