@@ -11,24 +11,16 @@ import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import AccessTime from "@material-ui/icons/AccessTime";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
-import Accessibility from "@material-ui/icons/Accessibility"
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-
-import { bugs, website, server, NotebookData } from "variables/general.js";
+import TodoList from "components/bloc/TodoList.js"
+import Notebook from "components/bloc/Notebook.js"
 
 import   dailySalesChart from "variables/charts.js";
 import   emailsSubscriptionChart from "variables/charts.js";
@@ -237,77 +229,14 @@ export default function Dashboard() {
       <GridContainer>
         {/*task------------------------------------------------------------------------------------------------------*/}
         <GridItem xs={12} sm={12} md={6}>
-          <CustomTabs
-            title="Tasks:"
-            headerColor="primary"
-            tabs={[
-              {
-                tabName: "add Task",
-                tabIcon: Accessibility,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0, 3]}
-                    tasksIndexes={Object.keys(bugs)}
-                    tasks={bugs}
-                  />
-                )
-              },
-              {
-                tabName: "Website",
-                tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={Object.keys(website)}
-                    tasks={website}
-                  />
-                )
-              },
-              {
-                tabName: "Server",
-                tabIcon: Cloud,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1]}
-                    tasksIndexes={Object.keys(server)}
-                    tasks={server}
-                  />
-                )
-              },
-              {
-                tabName: "Bugs",
-                tabIcon: BugReport,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1,2]}
-                    tasksIndexes={Object.keys(bugs)}
-                    tasks={bugs}
-                  />
-                )
-              }
-            ]}
-          />
+          <TodoList/>
         </GridItem>
         {/*------------------------------------------------------------------------------------------------------*/}
-
+            
 
         {/*Notebook--------------------------------------------------------------------------------------*/}
         <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader color="warning">
-              <h4 className={classes.cardTitleWhite}>Notebook</h4>
-              <p className={classes.cardCategoryWhite}>
-                Write whatever you want here to remember.
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="warning"
-                tableHead={["ID", " Title ", "Content"]}
-                tableData={NotebookData}
-              />
-            </CardBody>
-          </Card>
+          <Notebook/>
         </GridItem>
       </GridContainer>
       {/*------------------------------------------------------------------------------------------------------*/}

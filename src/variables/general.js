@@ -21,6 +21,15 @@ var server = [
   'Sign contract for "What are conference organizers afraid of?"'
 ];
 
+
+var notifications = [{message:"Mike John responded to your email"},
+{message:"You have 5 new tasks"},
+{message:"You're now friend with Andrew"},
+{message:"Another Notification"},
+{message:"Another One"},
+{message:"test test seh seh!!"}
+];
+
 // [id , Title , Content ]
 var NotebookData = [[ "1" , "learn react" ,  "blu blu" ],
 ["2", "Hello world", "$23,789"],
@@ -32,5 +41,6 @@ module.exports = {
   bugs,
   website,
   server,
-  NotebookData
+  NotebookData,
+  notifications
 };

@@ -3,7 +3,8 @@ import React from "react";
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-
+// material-ui Icon
+import Add from "@material-ui/icons/Add";
 // material-ui components
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -16,6 +17,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter";
 import styles from "assets/jss/material-dashboard-react/components/customTabsStyle.js";
+import Button from "components/CustomButtons/Button"
 
 
 const useStyles = makeStyles(styles);
@@ -108,7 +110,14 @@ export default function CustomTabs(props) {
         })}
       </CardBody>
       <CardFooter>
-        <button>ADD TASK</button>
+        <Button
+          variant="contained"
+          color={headerColor}
+          className={classes.button}
+          startIcon={<Add/>}
+        >
+          Add Task
+        </Button>
       </CardFooter>
     </Card>
   );
