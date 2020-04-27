@@ -9,6 +9,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter";
 import Table from "components/Table/Table.js";
+import AddNote from "components/bloc/AddNote"
 import Button from "components/CustomButtons/Button"
 import { NotebookData } from "variables/general.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -35,14 +36,7 @@ function Notebook() {
                     />
                 </CardBody>
                 <CardFooter>
-                <Button
-                    variant="contained"
-                    color="warning"
-                    className={classes.button}
-                    startIcon={<Add/>}
-                >
-                    Add Task
-                </Button>
+                <AddNote/>
                 </CardFooter>
             </Card>
         </div>

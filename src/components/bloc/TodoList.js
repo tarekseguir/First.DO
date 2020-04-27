@@ -8,7 +8,7 @@ import Accessibility from "@material-ui/icons/Accessibility"
 import Tasks from "components/Tasks/Tasks.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import Danger from "components/Typography/Danger.js";
-import { bugs, website, server } from "variables/general.js";
+import { self_care, work, goals } from "variables/general.js";
 function TodoList() {
     return (
         <div>
@@ -22,8 +22,8 @@ function TodoList() {
                     tabContent: (
                     <Tasks
                         checkedIndexes={[0, 3]}
-                        tasksIndexes={Object.keys(bugs)}
-                        tasks={bugs}
+                        tasksIndexes={Object.keys(self_care)}
+                        tasks={self_care}
                     />
                     )
                 },
@@ -33,8 +33,8 @@ function TodoList() {
                     tabContent: (
                     <Tasks
                         checkedIndexes={[0]}
-                        tasksIndexes={Object.keys(website)}
-                        tasks={website}
+                        tasksIndexes={Object.keys(work)}
+                        tasks={work}
                     />
                     )
                 },
@@ -44,8 +44,8 @@ function TodoList() {
                     tabContent: (
                     <Tasks
                         checkedIndexes={[1]}
-                        tasksIndexes={Object.keys(server)}
-                        tasks={server}
+                        tasksIndexes={Object.keys(goals)}
+                        tasks={goals}
                     />
                     )
                 }

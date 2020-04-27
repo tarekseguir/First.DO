@@ -17,7 +17,7 @@ import CardBody from "components/Card/CardBody.js";
 import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import { bugs, website, server } from "variables/general.js";
+import { self_care, work, goals } from "variables/general.js";
 const styles = makeStyles((theme) => ({
     cardCategoryWhite: {
       color: "rgba(255,255,255,.62)",
@@ -49,11 +49,11 @@ function AddTask() {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [age, setAge] = React.useState('');
+    const [project, setProject] = React.useState('');
     const [taskContent, setTask] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(Number(event.target.value) || '');
+        setProject(Number(event.target.value) || '');
         
       };
       const handleClickOpen = () => {
@@ -61,8 +61,7 @@ function AddTask() {
       };
     
       const handleClose = (e) => {
-        bugs.push(taskContent);
-        console.log(bugs)
+        self_care.push(taskContent);
         setOpen(false);
       };
 
@@ -85,7 +84,7 @@ function AddTask() {
 
 
         
-        <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose} fullWidth>
+        <Dialog disableBackdropClick disableEscapeKeyDown open={open} fullWidth>
             <Card>
                 <CardHeader color="primary">
                     <h4 className={classes.cardTitleWhite}>Create a New Task:</h4>
@@ -97,7 +96,7 @@ function AddTask() {
                     <InputLabel htmlFor="demo-dialog-native">Project</InputLabel>
                     <Select
                         native
-                        value={age}
+                        value={project}
                         onChange={handleChange}
                         input={<Input id="project_id" />}
                     >
@@ -123,7 +122,7 @@ function AddTask() {
                 </DialogContent>
                 
                 <DialogActions>
-                <Button color="primary">
+                <Button color="primary" onClick={(e) =>{setOpen(false);}}>
                     Cancel
                 </Button>
                 <Button onClick={handleClose} color="primary">
