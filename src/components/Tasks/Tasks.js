@@ -16,6 +16,7 @@ import Close from "@material-ui/icons/Close";
 import Check from "@material-ui/icons/Check";
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tasksStyle.js";
+import { self_care, work, goals } from "variables/general.js";
 
 const useStyles = makeStyles(styles);
 
@@ -34,6 +35,19 @@ export default function Tasks(props) {
   };
   const { tasksIndexes, tasks } = props;
   const tableCellClasses = classnames(classes.tableCell);
+  const handleRemove = (value) =>{
+    console.log("clicked!");
+    if(tasks[0] == self_care[0]){
+      self_care.splice(value, 1);
+      console.log('self_care');
+    }
+    if(tasks[0] == work[0]){
+      work.splice(value, 1);
+    }
+    if(tasks[0] == goals[0]){
+      goals.splice(value, 1);
+    }
+  }
   return (
     <Table className={classes.table}>
       <TableBody>
@@ -82,6 +96,7 @@ export default function Tasks(props) {
                   className={classes.tableActionButton}
                 >
                   <Close
+                    onClick={() => handleRemove(value)}
                     className={
                       classes.tableActionButtonIcon + " " + classes.close
                     }

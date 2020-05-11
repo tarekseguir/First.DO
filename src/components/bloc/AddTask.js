@@ -15,7 +15,6 @@ import Card from 'components/Card/Card';
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import Button from "components/CustomButtons/Button.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 
 import { self_care, work, goals } from "variables/general.js";
 const styles = makeStyles((theme) => ({
@@ -35,6 +34,9 @@ const styles = makeStyles((theme) => ({
       marginBottom: "3px",
       textDecoration: "none"
     },
+    warning:{
+        color: '#FF0000'
+    },
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -51,7 +53,7 @@ function AddTask() {
     const [open, setOpen] = React.useState(false);
     const [project, setProject] = React.useState('');
     const [taskContent, setTask] = React.useState('');
-
+    const [warning, setWarning] = React.useState(false);
     const handleChange = (event) => {
         setProject(Number(event.target.value) || '');
         
@@ -61,12 +63,19 @@ function AddTask() {
       };
     
       const handleClose = (e) => {
-        self_care.push(taskContent);
-        setOpen(false);
+        if(project === '' || taskContent === ''){
+            setWarning(true);
+        }
+        else{
+            if(project === 1)
+                self_care.push(taskContent);
+            if(project === 2)
+                work.push(taskContent);
+            if(project === 3)
+                goals.push(taskContent);
+            setOpen(false);
+        }
       };
-
-
-
     return (
         <div>
             <Button onClick={handleClickOpen}
@@ -77,13 +86,6 @@ function AddTask() {
             >
                 Add Task
             </Button>
-
-
-
-
-
-
-        
         <Dialog disableBackdropClick disableEscapeKeyDown open={open} fullWidth>
             <Card>
                 <CardHeader color="primary">
@@ -113,11 +115,11 @@ function AddTask() {
                         onChange ={e => setTask(e.target.value)}
                         id="task_create"
                         fullWidth
-                        id="standard-textarea"
                         label="Your Task:"
                         placeholder="Placeholder"
                         multiline
                     />
+                    {(warning)? <p style={{color: "red"}}>eg: please, create your task!</p>: <br/>}
                 </form>
                 </DialogContent>
                 
@@ -129,6 +131,7 @@ function AddTask() {
                     Ok
                 </Button>
                 </DialogActions>
+                
                 </CardBody>
         </Card>
       </Dialog>

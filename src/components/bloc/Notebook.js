@@ -1,8 +1,6 @@
 import React from 'react'
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-// material-ui Icon
-import Add from "@material-ui/icons/Add";
 // core components
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -10,7 +8,6 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter";
 import Table from "components/Table/Table.js";
 import AddNote from "components/bloc/AddNote"
-import Button from "components/CustomButtons/Button"
 import { NotebookData } from "variables/general.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
